@@ -145,7 +145,7 @@ def insert_data_into_postgres(output_file="output.json"):
 
             api_url = "https://vitopia.vitap.ac.in/api/sendemail"
             payload = {"registrations": registrations}
-            headers = {"Content-Type": "application/json"}
+            headers = {"Content-Type": "application/json","Authorization": "Bearer OXbsI3womFuXNVK9Y6FKWuq/5pwK0PM70/fK6wlmKmc="}
         try:
             cursor.execute(insert_query, values)
             response = requests.post(api_url, json=payload, headers=headers)
