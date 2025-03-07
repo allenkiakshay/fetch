@@ -142,8 +142,15 @@ def insert_data_into_postgres(output_file="output.json"):
             reg.get("regType", ""),
             reg.get("scanned", False)  # PostgreSQL can store Boolean types.
         )
+
+            api_url = "https://vitopia.vitap.ac.in/api/sendemail"
+            payload = {"registrations": registrations}
+            headers = {"Content-Type": "application/json"}
         try:
             cursor.execute(insert_query, values)
+            response = requests.post(api_url, json=payload, headers=headers)
+            response.raise_for_status()
+            print("Email sent successfully.")
         except psycopg2.Error as e:
             print(f"Error while inserting record with invoiceId '{reg.get('invoiceId', '')}': {e}")
             conn.rollback()
