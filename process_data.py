@@ -113,7 +113,7 @@ def insert_data_into_postgres(output_file="output.json"):
     conn = psycopg2.connect(
         dbname="vitopia",
         user="postgres",
-        password="59d14sw4n28cnN05t6n4",
+        password="yeaVKbN3DINKnKU5QrHZ",
         host="database-1.cjusivpk0jjy.ap-south-1.rds.amazonaws.com",
         port="5432"
     )
